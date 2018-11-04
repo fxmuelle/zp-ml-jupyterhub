@@ -1,0 +1,28 @@
+proxy:
+  secretToken: "f9a7991915ac320af0de94c2fdcc6735eb553b66d45fb8760c9c3031ff39684a"
+
+auth:
+  type: github
+  github:
+    clientId: "13851fe2ab17efdf5c73"
+    clientSecret: "2fd2dfbdaf44d1e0cdab3c62a498e7f459eab3a1"
+    callbackUrl: "http://35.195.83.218/hub/oauth_callback"
+
+singleuser:
+#  storage:
+#    type: none
+#  lifecycleHooks:
+#    postStart:
+#      exec:
+#        command: ["/bin/sh", "-c", "test -f $HOME/.copied || cp -Rf /srv/app/src/. $HOME/; touch $HOME/.copied"]
+  lifecycleHooks:
+      postStart:
+        exec:
+          command: ["gitpuller", "https://github.com/fxmuelle/zp-ml-jupyter", "master", "material"]
+  image:
+    name: eu.gcr.io/zp-workshop-ml-jupyterhub/jhub
+    tag: nbgitpuller
+  defaultUrl: "/lab"
+  hub:
+    extraConfig: |-
+      c.Spawner.cmd = ['jupyter-labhub']
