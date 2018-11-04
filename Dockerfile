@@ -6,6 +6,7 @@ WORKDIR /home/jovyan
 
 RUN pip install nbgitpuller
 RUN jupyter serverextension enable --py nbgitpuller --sys-prefix
+RUN jupyter labextension install @jupyterlab/hub-extension
 
 # Expose the notebook port
 EXPOSE 8888
