@@ -7,6 +7,7 @@ auth:
     clientId: "13851fe2ab17efdf5c73"
     clientSecret: "2fd2dfbdaf44d1e0cdab3c62a498e7f459eab3a1"
     callbackUrl: "http://35.195.83.218/hub/oauth_callback"
+#    callbackUrl: "http://ml.workshops.zielpuls.com/hub/oauth_callback"
 
 singleuser:
 #  storage:
@@ -21,8 +22,8 @@ singleuser:
           command: ["gitpuller", "https://github.com/fxmuelle/zp-ml-jupyter", "master", "material"]
   image:
     name: eu.gcr.io/zp-workshop-ml-jupyterhub/jhub
-    tag: nbgitpuller
-  defaultUrl: "/lab"
-  hub:
-    extraConfig: |-
-      c.Spawner.cmd = ['jupyter-labhub']
+    tag: 0.0.5
+#  defaultUrl: "/lab"
+#  hub:
+#    extraConfig: |-
+#      c.Spawner.cmd = ['jupyter-labhub']
